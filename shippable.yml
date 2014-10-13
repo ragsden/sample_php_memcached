@@ -1,7 +1,7 @@
 language: php
 
 php: 
-  - 5.4
+  - 5.5
 
 services:
   - memcached
@@ -10,9 +10,7 @@ before_script:
   - mkdir -p shippable/testresults
   - mkdir -p shippable/codecoverage
   - mkdir -p /etc/php.d
-  - touch /etc/php.d/memcached.ini
-  - echo 'extension=memcache.so' > /etc/php.d/memcached.ini
-  #- echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 script:
   - phpunit  --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage tests/MemcachedExampleTest.php
