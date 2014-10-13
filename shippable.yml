@@ -9,7 +9,6 @@ services:
 before_script: 
   - mkdir -p shippable/testresults
   - mkdir -p shippable/codecoverage
-  - mkdir -p /etc/php.d
   - echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 script:
